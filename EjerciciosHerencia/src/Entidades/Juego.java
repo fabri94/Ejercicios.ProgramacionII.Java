@@ -29,6 +29,11 @@ public class Juego {
     public double getPesoGB() {
         return pesoGB;
     }
+        
+    public boolean esCompatible(TipoConsola consola)
+    {
+        return consolasCompatibles.contains(consola);
+    }
     
     public String mostrarJuego()
     {
@@ -41,10 +46,5 @@ public class Juego {
         
         return sb.toString();
         
-    }
-    
-    public boolean esCompatible(TipoConsola consola)
-    {
-        return consolasCompatibles.contains(consola);
     }
 }

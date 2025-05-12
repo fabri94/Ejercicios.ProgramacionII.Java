@@ -33,6 +33,21 @@ public class Consola {
         }
         return seAgrego;
     }
+        
+    private double getEspacioLibre()
+    {
+        double espacioUsado = 0;
+        for(Juego juego : this.juegosInstalados)
+        {
+            espacioUsado = espacioUsado + juego.getPesoGB();
+        }
+        return capacidadMaximaGB - espacioUsado;
+    }
+    
+    private boolean puedeInstalar(Juego juego)
+    {
+        return (juego.esCompatible(this.tipo) && getEspacioLibre()>=juego.getPesoGB());
+    }
     
     public String mostrarJuegos()
     {
@@ -49,20 +64,5 @@ public class Consola {
             sb.append(juego.mostrarJuego());
         }
         return sb.toString();
-    }
-    
-    private double getEspacioLibre()
-    {
-        double espacioUsado = 0;
-        for(Juego juego : this.juegosInstalados)
-        {
-            espacioUsado = espacioUsado + juego.getPesoGB();
-        }
-        return capacidadMaximaGB - espacioUsado;
-    }
-    
-    private boolean puedeInstalar(Juego juego)
-    {
-        return (juego.esCompatible(this.tipo) && getEspacioLibre()>=juego.getPesoGB());
     }
 }

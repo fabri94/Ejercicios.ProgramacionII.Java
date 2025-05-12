@@ -9,6 +9,7 @@ import Entidades.Taladro;
 import Entidades.Taller;
 import Entidades.TipoConsola;
 import Entidades.TipoMaterial;
+import java.util.ArrayList;
 
 /**
  *
@@ -57,8 +58,13 @@ public class EjerciciosHerencia {
         Consola xbox1 = new Consola("Xbox One",TipoConsola.XBOX,2000);
         Consola rogStrix = new Consola("PC ROG STRIX",TipoConsola.PC,12000);
         
-        Juego pepeSilvia = new JuegoAccion("Las cronicas de Pepe Silvia",4000);
-        Juego fifaStreet = new JuegoDeportes("Fifa Street",2000);
+        ArrayList<TipoConsola> tipoConsola= new ArrayList();
+        tipoConsola.add(TipoConsola.PLAYSTATION);
+        tipoConsola.add(TipoConsola.XBOX);
+        tipoConsola.add(TipoConsola.PC);
+        
+        Juego pepeSilvia = new JuegoAccion("Las cronicas de Pepe Silvia",4000, tipoConsola);
+        Juego fifaStreet = new JuegoDeportes("Fifa Street",2000, tipoConsola);
         
         play5.agregarJuego(fifaStreet);
         play5.agregarJuego(pepeSilvia);
