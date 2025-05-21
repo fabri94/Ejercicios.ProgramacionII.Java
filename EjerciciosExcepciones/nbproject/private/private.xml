@@ -3,13 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/repos/reposJava/2025%20cuatri/EjerciciosExcepciones/src/Entidades/IVendible.java</file>
-            <file>file:/D:/repos/reposJava/2025%20cuatri/EjerciciosExcepciones/src/Entidades/ProductoPerecedero.java</file>
-            <file>file:/D:/repos/reposJava/2025%20cuatri/EjerciciosExcepciones/src/Entidades/PrecioInvalidoException.java</file>
-            <file>file:/D:/repos/reposJava/2025%20cuatri/EjerciciosExcepciones/src/Entidades/Producto.java</file>
-            <file>file:/D:/repos/reposJava/2025%20cuatri/EjerciciosExcepciones/src/Entidades/StockInsuficienteException.java</file>
-            <file>file:/D:/repos/reposJava/2025%20cuatri/EjerciciosExcepciones/src/ejerciciosexcepciones/EjerciciosExcepciones.java</file>
-            <file>file:/D:/repos/reposJava/2025%20cuatri/EjerciciosExcepciones/src/Entidades/ProductoNoPerecedero.java</file>
+            <file>file:/C:/Users/Fabri/Desktop/Ejercicios%20Java/Ejercicios.ProgramacionII.Java/EjerciciosExcepciones/src/EntidadesGestionInventario/Producto.java</file>
+            <file>file:/C:/Users/Fabri/Desktop/Ejercicios%20Java/Ejercicios.ProgramacionII.Java/EjerciciosExcepciones/src/EntidadesGestionInventario/StockInsuficienteException.java</file>
+            <file>file:/C:/Users/Fabri/Desktop/Ejercicios%20Java/Ejercicios.ProgramacionII.Java/EjerciciosExcepciones/src/EntidadesGestionInventario/PrecioInvalidoException.java</file>
+            <file>file:/C:/Users/Fabri/Desktop/Ejercicios%20Java/Ejercicios.ProgramacionII.Java/EjerciciosExcepciones/src/EntidadesGestionInventario/IVendible.java</file>
+            <file>file:/C:/Users/Fabri/Desktop/Ejercicios%20Java/Ejercicios.ProgramacionII.Java/EjerciciosExcepciones/src/EntidadesGestionInventario/ProductoPerecedero.java</file>
+            <file>file:/C:/Users/Fabri/Desktop/Ejercicios%20Java/Ejercicios.ProgramacionII.Java/EjerciciosExcepciones/src/EntidadesGestionInventario/ProductoNoPerecedero.java</file>
+            <file>file:/C:/Users/Fabri/Desktop/Ejercicios%20Java/Ejercicios.ProgramacionII.Java/EjerciciosExcepciones/src/ejerciciosexcepciones/EjerciciosExcepciones.java</file>
         </group>
     </open-files>
 </project-private>
