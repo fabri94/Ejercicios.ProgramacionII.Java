@@ -4,6 +4,14 @@ import EntidadesGestionInventario.PrecioInvalidoException;
 import EntidadesGestionInventario.ProductoNoPerecedero;
 import EntidadesGestionInventario.ProductoPerecedero;
 import EntidadesGestionInventario.StockInsuficienteException;
+import EntidadesVuelos.AsientoNoDisponibleException;
+import EntidadesVuelos.Reservable;
+import EntidadesVuelos.Vuelo;
+import EntidadesVuelos.VueloInternacional;
+import EntidadesVuelos.VueloNacional;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -13,7 +21,8 @@ public class EjerciciosExcepciones {
     
     public static void main(String[] args) {
       
-       ejercicioUno();
+       //ejercicioUno();
+       ejercicioDos();
     }
     
     public static void ejercicioUno(){
@@ -42,5 +51,31 @@ public class EjerciciosExcepciones {
         } finally {
             System.out.println("\nFinalizando operación (bloque finally ejecutado siempre).");
         }
+    }
+    
+    
+    public static void ejercicioDos()
+    {
+        Vuelo vueloPepe1 = new VueloNacional("C103","Pepelandia","Rosario",0,2,LocalDateTime.of(2025, 5, 20, 14, 30),"Chubut",true);
+        Vuelo vueloPepe2 = new VueloInternacional("A400","Pepelandia","Paris",0,1,LocalDateTime.of(2025, 5, 20, 14, 30),"Francia",false,4000.0);
+        
+        List<Reservable> reservasAvion = new ArrayList<>();
+        reservasAvion.add(vueloPepe1);
+        reservasAvion.add(vueloPepe2);
+        vueloPepe1.reservarAsiento();
+        vueloPepe1.reservarAsiento();
+        vueloPepe2.reservarAsiento();
+        try{
+            vueloPepe2.reservarAsiento();
+        }catch(AsientoNoDisponibleException e){
+            System.out.println("Error de reserva: "+e.getMessage());
+        }
+        
+        for(Reservable r : reservasAvion){
+            r.confirmarReserva();
+        }
+        
+        System.out.println("Reservas vueloPepe1: "+vueloPepe1.getAsientosReservados());
+        System.out.println("Reservas vueloPepe2: "+vueloPepe2.getAsientosReservados());
     }
 }
