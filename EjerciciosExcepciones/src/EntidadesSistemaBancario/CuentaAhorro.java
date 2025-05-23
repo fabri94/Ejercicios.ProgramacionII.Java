@@ -1,11 +1,9 @@
 package EntidadesSistemaBancario;
-
 /**
  *
  * @author Fabri
  */
 public class CuentaAhorro extends Cuenta{
-
     private boolean estaBonificada;
     
     public CuentaAhorro(String titular, double saldo, boolean estaBonificada) {
@@ -15,24 +13,11 @@ public class CuentaAhorro extends Cuenta{
 
     @Override
     public void retirar(double monto) {
-        if(getSaldo()<monto){
-            throw new FondosInsuficientesException("ERROR, fondos insuficientes");
-        }
-        if((!validarRetiro(monto)) || monto<0){
-            throw new TransaccionInvalidaException("ERROR, no es posible avanzar con la transaccion solicitada");
-        }
-        super.gestionarSaldo(monto);
-        System.out.println("Se extrajo "+monto+" de la cuenta");
-        
+        super.procesarRetiro(monto);
     }
     
-    private boolean validarRetiro(double monto){
-        boolean esValido = false;
-        
-        if(this.estaBonificada || (!this.estaBonificada && monto<2000)){
-            esValido = true;
-        }
-        return esValido;
-    }
-    
+    @Override
+    protected boolean validarRetiro(double monto){
+        return estaBonificada || monto<2000;
+    }    
 }
