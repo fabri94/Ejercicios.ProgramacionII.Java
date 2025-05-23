@@ -13,5 +13,4 @@ public class PermisoDenegadoException extends Exception{
     public PermisoDenegadoException(String msj) {
         super(msj);
     }
-    
 }

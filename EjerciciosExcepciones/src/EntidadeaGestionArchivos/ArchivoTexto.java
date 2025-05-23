@@ -1,13 +1,32 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package EntidadeaGestionArchivos;
 
 /**
  *
  * @author Fabri
  */
-public class ArchivoTexto {
+public class ArchivoTexto extends Archivo implements Compresible{
+
+    public ArchivoTexto(String nombre, boolean existe, boolean tienePermiso) {
+        super(nombre, existe, tienePermiso);
+    }
+    @Override
+    public void leer() throws ArchivoNoEncontradoException, PermisoDenegadoException{
+        validarAcceso();
+        System.out.println("Leyendo archivo de texto: "+this.getNombre());
+    }
+
+    @Override
+    public void escribir(String texto) throws ArchivoNoEncontradoException, PermisoDenegadoException{
+        validarAcceso();
+        System.out.println("Se modifico el archivo de texto: "+this.getNombre()+" y se agrego lo siguiente: \n"+texto);
+    }
+
+    @Override
+    public void comprimir() throws ArchivoNoEncontradoException{
+        if(!this.getExistencia()){
+            throw new ArchivoNoEncontradoException("ERROR, el archivo de texto a comprimir NO EXISTE");
+        }
+        System.out.println("Archivo de texto :"+this.getNombre()+" comprimido exitosamente");
+    }
     
 }
