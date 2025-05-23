@@ -22,7 +22,7 @@ public class EjerciciosExcepciones {
     public static void main(String[] args) {
       
        //ejercicioUno();
-       ejercicioDos();
+       //ejercicioDos();
     }
     
     public static void ejercicioUno(){
