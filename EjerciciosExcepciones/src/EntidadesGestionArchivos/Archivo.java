@@ -27,14 +27,14 @@ public abstract class Archivo {
     //encapsulo logica de existe y tienePermiso en clase padre para no andar repitiendo codigo en clases hijas (DRY)
     protected void validarAcceso() throws ArchivoNoEncontradoException, PermisoDenegadoException {
         if(!this.existe){
-            throw new ArchivoNoEncontradoException("ERROR, el archivo NO EXISTE");
+            throw new ArchivoNoEncontradoException("ERROR, el archivo NO EXISTE\n");
         }
         if(!this.tienePermiso){
-            throw new PermisoDenegadoException("ERROR, no cuenta con los permisos necesarios");
+            throw new PermisoDenegadoException("ERROR, no cuenta con los permisos necesarios\n");
         }
     }
     
     public abstract void leer() throws ArchivoNoEncontradoException, PermisoDenegadoException;
-    public abstract void escribir(String texto) throws ArchivoNoEncontradoException, PermisoDenegadoException;
+    public abstract void escribir(String contenido) throws ArchivoNoEncontradoException, PermisoDenegadoException;
     
 }

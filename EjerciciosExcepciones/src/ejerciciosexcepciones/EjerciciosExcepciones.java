@@ -1,14 +1,8 @@
 package ejerciciosexcepciones;
 
-import EntidadesGestionInventario.PrecioInvalidoException;
-import EntidadesGestionInventario.ProductoNoPerecedero;
-import EntidadesGestionInventario.ProductoPerecedero;
-import EntidadesGestionInventario.StockInsuficienteException;
-import EntidadesVuelos.AsientoNoDisponibleException;
-import EntidadesVuelos.Reservable;
-import EntidadesVuelos.Vuelo;
-import EntidadesVuelos.VueloInternacional;
-import EntidadesVuelos.VueloNacional;
+import EntidadesGestionArchivos.*;
+import EntidadesGestionInventario.*;
+import EntidadesVuelos.*;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,8 +15,9 @@ public class EjerciciosExcepciones {
     
     public static void main(String[] args) {
       
-       gestionDeInventario();
-       reservasDeVuelos();
+       //gestionDeInventario();
+       //reservasDeVuelos();
+       gestorArchivos();
     }
     
     public static void gestionDeInventario(){
@@ -77,5 +72,30 @@ public class EjerciciosExcepciones {
         
         System.out.println("Reservas vueloPepe1: "+vueloPepe1.getAsientosReservados());
         System.out.println("Reservas vueloPepe2: "+vueloPepe2.getAsientosReservados());
+    }
+    
+    public static void gestorArchivos(){
+        Archivo pepe1 = new ArchivoTexto("pepe.txt",true,true);
+        Archivo pepeInexistente = new ArchivoTexto("pepe2.txt",false,false);
+        Archivo imagenPepe = new ArchivoImagen("imagenpepe.jpg",true,true);
+        Archivo imagenPepeSinPermisos = new ArchivoImagen("pepiando.jpg",true,false);
+        
+        realizarAccionArchivo(pepe1,"el pepe rey se convierte en dios");
+        realizarAccionArchivo(pepeInexistente,"pepe no existe en este entorno");
+        realizarAccionArchivo(imagenPepe,"ROJO");
+        realizarAccionArchivo(imagenPepeSinPermisos,"VERDE");
+        
+    }
+    
+    public static void realizarAccionArchivo(Archivo archivo, String contenido){
+        try{
+            archivo.leer();
+            archivo.escribir(contenido);
+            if(archivo instanceof Compresible){
+                ((Compresible) archivo).comprimir();
+            }
+        }catch(PermisoDenegadoException | ArchivoNoEncontradoException e){
+            System.out.println("ERROR: \n"+e.getMessage());
+        }
     }
 }
