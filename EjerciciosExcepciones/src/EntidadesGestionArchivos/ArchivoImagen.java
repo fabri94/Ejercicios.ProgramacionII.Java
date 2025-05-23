@@ -1,4 +1,4 @@
-package EntidadeaGestionArchivos;
+package EntidadesGestionArchivos;
 /**
  *
  * @author Fabri
@@ -24,7 +24,7 @@ public class ArchivoImagen extends Archivo implements Compresible{
     @Override
     public void comprimir() throws ArchivoNoEncontradoException{
         if(!this.getExistencia()){
-            throw new ArchivoNoEncontradoException("ERROR, la imagen a comprimir NO EXISTE");
+            throw new ArchivoNoEncontradoException("ERROR, la imagen "+this.getNombre()+" a comprimir NO EXISTE");
         }
         System.out.println("Imagen: "+this.getNombre()+" comprimido exitosamente");
     }

@@ -1,4 +1,4 @@
-package EntidadeaGestionArchivos;
+package EntidadesGestionArchivos;
 
 /**
  *
@@ -24,7 +24,7 @@ public class ArchivoTexto extends Archivo implements Compresible{
     @Override
     public void comprimir() throws ArchivoNoEncontradoException{
         if(!this.getExistencia()){
-            throw new ArchivoNoEncontradoException("ERROR, el archivo de texto a comprimir NO EXISTE");
+            throw new ArchivoNoEncontradoException("ERROR, el archivo de texto "+this.getNombre()+" a comprimir NO EXISTE");
         }
         System.out.println("Archivo de texto :"+this.getNombre()+" comprimido exitosamente");
     }

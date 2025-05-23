@@ -1,4 +1,4 @@
-package EntidadeaGestionArchivos;
+package EntidadesGestionArchivos;
 /**
  *
  * @author Fabri
