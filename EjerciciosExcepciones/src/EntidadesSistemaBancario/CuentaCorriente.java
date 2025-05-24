@@ -7,8 +7,8 @@ public class CuentaCorriente extends Cuenta{
 
     private double limiteExtraccionDolares;
     
-    public CuentaCorriente(String titular, double saldo, double limiteExtraccionDolares) {
-        super(titular, saldo);
+    public CuentaCorriente(Cliente cliente, double saldo, double limiteExtraccionDolares) {
+        super(cliente, saldo);
         this.limiteExtraccionDolares = limiteExtraccionDolares;
     }
 

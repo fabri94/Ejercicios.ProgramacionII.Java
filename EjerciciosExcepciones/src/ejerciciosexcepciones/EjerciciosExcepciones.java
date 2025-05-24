@@ -2,6 +2,7 @@ package ejerciciosexcepciones;
 
 import EntidadesGestionArchivos.*;
 import EntidadesGestionInventario.*;
+import EntidadesSistemaBancario.*;
 import EntidadesVuelos.*;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -17,7 +18,8 @@ public class EjerciciosExcepciones {
       
        //gestionDeInventario();
        //reservasDeVuelos();
-       gestorArchivos();
+       //gestorArchivos();
+       sistemaBancario();
     }
     
     public static void gestionDeInventario(){
@@ -97,5 +99,51 @@ public class EjerciciosExcepciones {
         }catch(PermisoDenegadoException | ArchivoNoEncontradoException e){
             System.out.println("ERROR: \n"+e.getMessage());
         }
+    }
+
+    public static void sistemaBancario() {
+        Cliente juan = new Cliente("Juan", "Pérez", 12345678, "juan.perez@email.com");
+        Cliente maria = new Cliente("María", "Gómez", 87654321, "maria.gomez@email.com");
+        Cliente pepe = new Cliente("Pepe", "Rufoso", 19161845, "pepito.rufoso@email.com");
+        
+        Cuenta cuentaAhorroJuan = new CuentaAhorro(juan, 5000.0, true);
+        Cuenta cuentaAhorroPepe = new CuentaAhorro(pepe, 120000.0, false);
+        Cuenta cuentaCorrienteMaria = new CuentaCorriente(maria, 10000.0, 3000.0);
+
+        System.out.println("---- Operaciones de Juan ----");
+        cuentaAhorroJuan.depositar(2000);
+        
+        try{
+            cuentaAhorroJuan.depositar(0);
+        }catch(TransaccionInvalidaException e){
+            System.out.println("Excepcion: "+e.getMessage());
+        }
+        
+        try{
+            cuentaAhorroJuan.retirar(10000);
+        }catch(FondosInsuficientesException e)
+        {
+            System.out.println("Excepcion: "+e.getMessage());
+        }
+        cuentaAhorroJuan.retirar(3000); 
+        
+        System.out.println("\n---- Operaciones de Pepe ----");
+        cuentaAhorroPepe.depositar(2000);
+        try{
+            cuentaAhorroPepe.retirar(40000);
+        }catch(TransaccionInvalidaException e){
+            System.out.println("Excepcion: "+e.getMessage());
+        }
+
+        System.out.println("\n---- Operaciones de María ----");
+        cuentaCorrienteMaria.depositar(1500);
+        
+        try {
+            cuentaCorrienteMaria.retirar(4000); 
+        } catch (TransaccionInvalidaException e) {
+            System.out.println("Excepción: " + e.getMessage());
+        }
+
+        cuentaCorrienteMaria.retirar(2500); 
     }
 }

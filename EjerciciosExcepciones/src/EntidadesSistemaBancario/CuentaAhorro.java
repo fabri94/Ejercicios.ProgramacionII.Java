@@ -6,8 +6,8 @@ package EntidadesSistemaBancario;
 public class CuentaAhorro extends Cuenta{
     private boolean estaBonificada;
     
-    public CuentaAhorro(String titular, double saldo, boolean estaBonificada) {
-        super(titular, saldo);
+    public CuentaAhorro(Cliente cliente, double saldo, boolean estaBonificada) {
+        super(cliente, saldo);
         this.estaBonificada = estaBonificada;
     }
 
