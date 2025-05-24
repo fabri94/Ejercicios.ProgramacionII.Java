@@ -1,5 +1,6 @@
 package ejerciciosexcepciones;
 
+import EntidadesEvaluacionAcademica.*;
 import EntidadesGestionArchivos.*;
 import EntidadesGestionInventario.*;
 import EntidadesSistemaBancario.*;
@@ -19,7 +20,8 @@ public class EjerciciosExcepciones {
        //gestionDeInventario();
        //reservasDeVuelos();
        //gestorArchivos();
-       sistemaBancario();
+       //sistemaBancario();
+       evaluacionAcademica();
     }
     
     public static void gestionDeInventario(){
@@ -145,5 +147,43 @@ public class EjerciciosExcepciones {
         }
 
         cuentaCorrienteMaria.retirar(2500); 
+    }
+
+    public static void evaluacionAcademica() {
+                        
+            ArrayList<Evaluacion> evaluacionesJuan = new ArrayList<>();
+            ArrayList<Evaluacion> evaluacionesAna = new ArrayList<>();
+            
+            Alumno juan = new Alumno("Juan", "Pérez", evaluacionesJuan);
+            Alumno ana = new Alumno("Ana", "Gómez", evaluacionesAna);
+            
+            Evaluacion tpJuan = new TrabajoPractico(juan, true);
+            Evaluacion examenJuan = new Examen(juan, false); 
+            Evaluacion tpAna = new TrabajoPractico(ana, false); 
+            
+            evaluacionesJuan.add(tpJuan);
+            evaluacionesJuan.add(examenJuan);
+            evaluacionesAna.add(tpAna);
+
+            calificarEvaluacion(tpJuan, -1, "TP de Juan");
+            calificarEvaluacion(tpJuan, 10, "TP de Juan");
+            calificarEvaluacion(examenJuan, 10, "Parcial de Juan");
+            calificarEvaluacion(tpAna, -9, "TP de Ana");
+            
+            System.out.println("Calificaciones de Juan: ");
+            for (Evaluacion e : evaluacionesJuan) {
+                if(e instanceof Imprimible && e.obtenerNota()>0){
+                    ((Imprimible) e).imprimirResultado();
+                }
+            }          
+        
+    }
+    
+    public static void calificarEvaluacion(Evaluacion e, int nota, String tipoEvaluacion) {
+        try {
+            e.calificar(nota);
+        }catch(NotaInvalidaException ex) {
+            System.out.println("Error al calificar " + tipoEvaluacion + ": " + ex.getMessage());
+        }
     }
 }
