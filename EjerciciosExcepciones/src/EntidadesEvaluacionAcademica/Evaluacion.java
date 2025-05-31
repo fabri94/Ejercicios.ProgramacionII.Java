@@ -15,7 +15,7 @@ public abstract class Evaluacion {
     public int obtenerNota(){
         return this.nota;
     }
-
+    
     public void calificar(int nota) throws NotaInvalidaException{
         if (nota < 0 || nota > 10) 
         {

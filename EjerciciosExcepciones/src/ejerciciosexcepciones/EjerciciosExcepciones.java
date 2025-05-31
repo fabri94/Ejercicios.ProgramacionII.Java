@@ -52,9 +52,7 @@ public class EjerciciosExcepciones {
         }
     }
     
-    
-    public static void reservasDeVuelos()
-    {
+    public static void reservasDeVuelos()    {
         Vuelo vueloPepe1 = new VueloNacional("C103","Pepelandia","Rosario",0,2,LocalDateTime.of(2025, 5, 20, 14, 30),"Chubut",true);
         Vuelo vueloPepe2 = new VueloInternacional("A400","Pepelandia","Paris",0,1,LocalDateTime.of(2025, 5, 20, 14, 30),"Francia",false,4000.0);
         
