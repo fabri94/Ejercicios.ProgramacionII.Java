@@ -1,5 +1,6 @@
 package ejerciciosgenerics;
 
+import EntidadesContabilidad.*;
 import EntidadesTorneo.*;
 import java.time.LocalDateTime;
 
@@ -10,7 +11,8 @@ import java.time.LocalDateTime;
 public class EjerciciosGenerics {
 
     public static void main(String[] args) {
-        ejercicioTorneo();
+        //ejercicioTorneo();
+        ejercicioContabilidad();
     }
     
     public static void ejercicioTorneo(){
@@ -41,5 +43,21 @@ public class EjerciciosGenerics {
         System.out.println(torneoBasquet.jugarPartido());
         System.out.println(torneoFutbol.jugarPartido());
         System.out.println(torneoBasquet.jugarPartido());
+    }
+    
+    public static void ejercicioContabilidad(){
+        Contabilidad c = new Contabilidad();
+        Documento facturaPepe = new Factura(1);
+        Documento facturaPepe2 = new Factura(1);
+        Documento reciboPepe = new Recibo(1);
+        Documento reciboPepe2 = new Recibo(1);
+        
+        Contabilidad.agregarEgreso(c, facturaPepe);
+        Contabilidad.agregarEgreso(c, facturaPepe2);
+        Contabilidad.agregarIngreso(c, reciboPepe);
+        Contabilidad.agregarIngreso(c, reciboPepe2);
+
+        
+        System.out.println(c.toString());
     }
 }
