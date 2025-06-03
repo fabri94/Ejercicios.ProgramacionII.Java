@@ -12,9 +12,9 @@ import java.time.LocalDateTime;
 public class EjerciciosGenerics {
 
     public static void main(String[] args) {
-        //ejercicioTorneo();
+        ejercicioTorneo();
         //ejercicioContabilidad();
-        ejercicioDeposito();
+        //ejercicioDeposito();
     }
     
     public static void ejercicioTorneo(){
@@ -28,6 +28,7 @@ public class EjerciciosGenerics {
         EquipoBasquet celtics = new EquipoBasquet("Boston Celtics", LocalDateTime.of(1946, 6, 6, 0, 0));
 
         Torneo<EquipoFutbol> torneoFutbol = new Torneo<>("Liga Profesional de Futbol");
+        torneoFutbol.agregar(river);
         torneoFutbol.agregar(river);
         torneoFutbol.agregar(boca);
         torneoFutbol.agregar(racing);
