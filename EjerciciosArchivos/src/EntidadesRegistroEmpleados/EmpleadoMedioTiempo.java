@@ -12,8 +12,8 @@ public class EmpleadoMedioTiempo extends Empleado{
     private double sueldoBase;
     private boolean cumplioPresentismo;
 
-    public EmpleadoMedioTiempo(String nombre, int edad, double salarioMensual, boolean cumplioPresentismo) {
-        super(nombre, edad);
+    public EmpleadoMedioTiempo(String nombre, double salarioMensual, boolean cumplioPresentismo) {
+        super(nombre);
         this.sueldoBase = salarioMensual;
         this.cumplioPresentismo = cumplioPresentismo;
     }

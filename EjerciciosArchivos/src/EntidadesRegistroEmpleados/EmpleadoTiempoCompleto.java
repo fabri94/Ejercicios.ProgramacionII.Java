@@ -9,8 +9,8 @@ public class EmpleadoTiempoCompleto extends Empleado{
     private double sueldoBase;
     private int horasExtra;
     
-    public EmpleadoTiempoCompleto(String nombre, int edad, double salarioMensual, int horasExtra) {
-        super(nombre, edad);
+    public EmpleadoTiempoCompleto(String nombre, double salarioMensual, int horasExtra) {
+        super(nombre);
         this.sueldoBase = salarioMensual;
         this.horasExtra = horasExtra;
     }
