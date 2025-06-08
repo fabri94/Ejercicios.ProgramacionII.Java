@@ -10,7 +10,7 @@ public class EmpleadoTiempoCompleto extends Empleado{
     private int horasExtra;
     
     public EmpleadoTiempoCompleto(String nombre, double salarioMensual, int horasExtra) {
-        super(nombre);
+        super(nombre,TipoEmpleado.TIEMPO_COMPLETO);
         this.sueldoBase = salarioMensual;
         this.horasExtra = horasExtra;
     }

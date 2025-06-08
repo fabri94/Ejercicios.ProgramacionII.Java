@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package EntidadesRegistroEmpleados;
 
 /**
@@ -13,7 +9,7 @@ public class EmpleadoMedioTiempo extends Empleado{
     private boolean cumplioPresentismo;
 
     public EmpleadoMedioTiempo(String nombre, double salarioMensual, boolean cumplioPresentismo) {
-        super(nombre);
+        super(nombre,TipoEmpleado.MEDIO_TIEMPO);
         this.sueldoBase = salarioMensual;
         this.cumplioPresentismo = cumplioPresentismo;
     }
