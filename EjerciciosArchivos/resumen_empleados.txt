@@ -1,0 +1,6 @@
+Nombre          Tipo            Sueldo Final   
+-------------------------------------------
+Juan Perez      Tiempo Completo $170000,00
+Pepe Silvia     Medio tiempo    $92000,00
+Carlos Menem    Tiempo Completo $152000,00
+Abdul Jabbar    Medio tiempo    $90000,00
