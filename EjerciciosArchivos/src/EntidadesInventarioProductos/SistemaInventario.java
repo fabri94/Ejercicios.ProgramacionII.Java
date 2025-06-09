@@ -36,7 +36,7 @@ public class SistemaInventario implements ISistemaInventario{
 
     @Override
     public void guardarResultados(List<Producto> productos, String archivoSalida) {
-
+        
     }
     
 }
