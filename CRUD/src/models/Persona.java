@@ -39,12 +39,7 @@ public class Persona {
         this.apellido = apellido;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 3;
-        hash = 53 * hash + this.id;
-        return hash;
-    }
+   
 
     @Override
     public boolean equals(Object obj) {
