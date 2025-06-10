@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ViewController">
+   <children>
+      <Pane layoutX="59.0" layoutY="51.0" prefHeight="298.0" prefWidth="483.0">
+         <children>
+            <Button fx:id="btnAgregar" layoutX="24.0" layoutY="246.0" mnemonicParsing="false" onAction="#agregarPersona" prefHeight="28.0" prefWidth="84.0" text="Agregar">
+               <font>
+                  <Font name="Cascadia Code Regular" size="14.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
+            <Button fx:id="btnModificar" layoutX="190.0" layoutY="246.0" mnemonicParsing="false" onAction="#modificarPersona" prefHeight="28.0" prefWidth="103.0" text="Modificar">
+               <font>
+                  <Font name="Cascadia Code Regular" size="14.0" />
+               </font></Button>
+            <Button fx:id="btnEliminar" layoutX="358.0" layoutY="246.0" mnemonicParsing="false" onAction="#eliminarPersona" prefHeight="28.0" prefWidth="103.0" text="Eliminar">
+               <font>
+                  <Font name="Cascadia Code Regular" size="14.0" />
+               </font></Button>
+            <ListView fx:id="listViewPersonas" layoutX="24.0" layoutY="14.0" prefHeight="221.0" prefWidth="437.0" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
