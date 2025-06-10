@@ -29,11 +29,7 @@ public class ProcesadorInventario {
     }
     
     private boolean validarColumnas(String[] columnas){
-        boolean esValido = false;
-        if(columnas.length == 5){
-            esValido = true;
-        }
-        return esValido;
+        return columnas.length==5;
     }
     
     private Producto parsearProducto(String[] columnas){
@@ -78,7 +74,7 @@ public class ProcesadorInventario {
     }
     
     private boolean validarCampos(int codigo, double precio, Categoria categoria, int cantidadStock){
-        return codigo!=0 && precio!=0 && categoria!=null && cantidadStock!=0;
+        return codigo>0 && precio>0 && categoria!=null && cantidadStock>=0;
     }
     
     public void escribir(List<Producto> productos, String path, boolean seAppendea) throws IOException{
@@ -112,7 +108,7 @@ public class ProcesadorInventario {
             nombre = p.getNombre();
         }
         
-        infoProducto = String.format("%-15s %-15s $%.2f %-15s %-15s", p.getCodigo(), nombre, p.getPrecio(), categoria, p.getCantidadStock());
+        infoProducto = String.format("%-15d %-15s $%-14.2f %-15s %-15d", p.getCodigo(), nombre, p.getPrecio(), categoria, p.getCantidadStock());
         return infoProducto;
     }
 }

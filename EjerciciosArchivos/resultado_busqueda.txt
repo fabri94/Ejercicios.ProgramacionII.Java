@@ -1,0 +1,6 @@
+Codigo          Nombre               Precio     Categoria       Stock     
+--------------------------------------------------------------------------------
+101             Coca Cola       $120,50         Bebida          50             
+102             Fanta           $110,00         Bebida          30             
+101             Coca Cola       $120,50         Bebida          50             
+102             Fanta           $110,00         Bebida          30             
