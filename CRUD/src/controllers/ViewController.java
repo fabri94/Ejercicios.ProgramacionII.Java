@@ -3,13 +3,16 @@ package controllers;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ListView;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -45,12 +48,30 @@ public class ViewController implements Initializable {
     
     @FXML
     private void modificarPersona(ActionEvent e){
-        this.abrirFormulario(null);
+        Persona p = this.listViewPersonas.getSelectionModel().getSelectedItem();
+        if(p!=null){
+            this.abrirFormulario(p);
+        }
+                
+        this.actualizarListView();
     }
     
     @FXML
     private void eliminarPersona(ActionEvent e){
-        this.abrirFormulario(null);
+        Persona p = this.listViewPersonas.getSelectionModel().getSelectedItem();
+        if(p!=null){
+            Alert alerta = new Alert(Alert.AlertType.CONFIRMATION);
+            alerta.setTitle("Confirmar eliminacion");
+            alerta.setHeaderText("¿Esta seguro que desea eliminar a esta persona?:\n");
+            alerta.setContentText(p.toString());
+            
+            Optional<ButtonType> resultado = alerta.showAndWait();
+            
+            if(resultado.isPresent()&&resultado.get()==ButtonType.OK){
+                this.listaPersonas.remove(p);
+                this.actualizarListView();
+            }
+        }
     }
     
     private void actualizarListView(){
